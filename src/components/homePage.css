@@ -1,0 +1,19 @@
+img{
+    width: 99%;
+}
+.section{
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+.section p{
+    font-size: large;
+    color: #36E0FF;
+    /* opacity: 0.5; */
+}
+

@@ -1,0 +1,29 @@
+
+.inputs{
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+}
+.input{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 300px;
+    height: 60px;
+    background:#1F2533 ;
+    border-radius: 6px;
+}
+.input i{
+    margin: 0px 30px;
+}
+.input input{
+    height: 50px;
+    width: 210px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 17px;
+}

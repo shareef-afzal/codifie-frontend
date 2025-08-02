@@ -1,0 +1,16 @@
+.card-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+}
+.card-title{
+    font-size: 0.875rem;
+    color: grey;
+}
+.card-data{
+    font-weight: bold;
+    font-size: 2rem; /* larger font for data */
+    
+}

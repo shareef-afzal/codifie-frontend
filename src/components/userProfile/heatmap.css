@@ -1,0 +1,57 @@
+.heatmap-wrapper {
+  background-color: #f8f9fa;
+  overflow-x: auto;
+}
+
+/* Month Labels (shift slightly to right) */
+.react-calendar-heatmap text {
+  fill: #aaa;
+  font-size: 10px;
+  transform: translateX(20px);
+}
+
+/* Color Levels */
+.react-calendar-heatmap .color-empty {
+  fill: #283040;
+}
+.react-calendar-heatmap .color-scale-1 {
+  fill: #205C26;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #4AA23C;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #5AC243;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #91E287 ;
+}
+
+/* Small rounded squares */
+.react-calendar-heatmap rect {
+  rx: 2px;
+  ry: 2px;
+  width: 10px;
+  height: 10px;
+  transition: fill 0.2s;
+}
+
+/* Tooltip Styling */
+.react-calendar-heatmap rect[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  pointer-events: none;
+  white-space: nowrap;
+  transform: translate(10px, -30px);
+  z-index: 9999;
+}
+
+.react-calendar-heatmap {
+  position: relative;
+  /* padding: 10px; */
+}

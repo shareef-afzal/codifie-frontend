@@ -1,0 +1,15 @@
+.lowercard{
+    background-color: #0C0F1C;
+    border: 1px solid #1F2533;
+}
+.uppercard{
+    background-color: #131825;
+}
+.card{
+    border-radius: 12px;
+    color: white;
+}
+.user-page{
+    width: 80%;
+    margin: 0 auto;
+}
