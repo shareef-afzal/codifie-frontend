@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PlatformSelector from './platformSelector';
-import PlatformStatsCard from './PlatformStatsCard';
+import PlatformStatsCard from './platformStatsCard';
 
 const UserStatsSection = ({ statsByPlatform }) => {
   // Get only platforms with non-null data
