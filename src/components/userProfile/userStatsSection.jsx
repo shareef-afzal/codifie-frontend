@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PlatformSelector from './PlatformSelector';
+import PlatformSelector from './platformSelector';
 import PlatformStatsCard from './PlatformStatsCard';
 
 const UserStatsSection = ({ statsByPlatform }) => {
