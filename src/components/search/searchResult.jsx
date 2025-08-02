@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaUserCircle, FaHeart, FaRegHeart } from "react-icons/fa";
-import './SearchResult.css'; // CSS import
+import './searchResult.css'; // CSS import
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 const SearchResult = ({ matchedUsers }) => {
