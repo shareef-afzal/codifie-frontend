@@ -3,11 +3,14 @@ import { FaUserCircle, FaHeart, FaRegHeart } from "react-icons/fa";
 import './friends.css'; // CSS import
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Spinner from "../spinner";
 const friends = () => {
     const [friends,setFriends]=useState([]);
     const [intitialFriends,setIntialFriends]=useState([]);
+    const [loading, setLoading] = useState(false);
     const {username}=useParams();
     const fetchFriends=async ()=>{
+      setLoading(true);
         try{
             const res=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}/getfriends`,{withCredentials:true});
             if(res.data){
@@ -21,11 +24,15 @@ const friends = () => {
          catch (err) {
             console.error("Failed to fetch friends:", err);
         }
+        finally{
+          setLoading(false);
+        }
     }
     useEffect(() => {
         fetchFriends();
     }, []);
   const toggleFriend=async (friendUser)=>{
+    setLoading(true);
     try{
         const res=await axios.put(`${import.meta.env.VITE_API_BASE_URL}/users/${username}/updatefriends`,{friendUser}, { withCredentials: true });
         if(res.data){
@@ -35,10 +42,14 @@ const friends = () => {
     catch(err) {
           console.error("Failed to update friends:", err);
       }
-
+    finally{
+      setLoading(false);
+    }
   }
   return (
-    <div className="search-result-container">
+    <div>
+      {loading?(<Spinner/>):
+      <div className="search-result-container">
         <div className="heading" align="center">
             Friends List of <a href={`/users/${username}`} style={{color:"#36E0FF", textDecoration:"underline", fontSize:"32px"} } >{username}</a>
         </div>
@@ -62,6 +73,7 @@ const friends = () => {
           </span>
         </div>
       ))):<p style={{color:"grey"}}>No friends added</p>}
+    </div>}
     </div>
   );
 };
