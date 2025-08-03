@@ -72,7 +72,7 @@ const editPage=()=>{
             setValidUser(false);
         }
         finally{
-            setLoading(true);
+            setLoading(false);
         }
     };
     useEffect(()=>{
