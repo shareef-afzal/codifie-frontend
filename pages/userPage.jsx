@@ -24,6 +24,7 @@ const UserPage = () => {
         const lastFetched=new Date(userData.lastFetchedAt)||new Date(0);
         const hoursSinceLastFetch=(now-lastFetched)/(1000*60*60);
         if(hoursSinceLastFetch>=0.5){
+          setLoading(false);
           setFetching(true);
           const fetchedRes=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/fetch/all/${username}`,{withCredentials:true});
           const updatedUserData=fetchedRes.data;
@@ -34,10 +35,10 @@ const UserPage = () => {
       }
       catch (err) {
         console.error("Failed to fetch user:", err);
-        setFetching(false);
       }
       finally{
         setLoading(false);
+        setFetching(false);
       }
     };
 
