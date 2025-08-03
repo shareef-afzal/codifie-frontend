@@ -1,13 +1,13 @@
 /* loader.css */
 .spinner {
   margin: 100px auto;
-  width: 64px;
-  height: 64px;
+  width: 32px;
+  height: 32px;
   position: relative;
 }
 
 .spinner div {
-  transform-origin: 32px 32px;
+  transform-origin: 16px 16px; /* half of 32px */
   animation: spinnerFade 1.2s linear infinite;
 }
 
@@ -15,10 +15,10 @@
   content: " ";
   display: block;
   position: absolute;
-  top: 3px;
-  left: 29px;
-  width: 6px;
-  height: 18px;
+  top: 1.5px;         /* half of 3px */
+  left: 14.5px;       /* half of 29px */
+  width: 3px;         /* half of 6px */
+  height: 9px;        /* half of 18px */
   border-radius: 20%;
   background: #36E0FF;
 }
