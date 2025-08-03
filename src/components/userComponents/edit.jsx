@@ -5,12 +5,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Spinner from "../spinner";
 const editPage=()=>{
     let location=useLocation();
     const navigate=useNavigate();
     const[showAlert, setShowAlert]=useState(false);
     const [validUser,setValidUser]=useState(true);
     const {username}=useParams();
+    const [loading, setLoading] = useState(false);
     const [formData,setFormData]=useState({
         username:'',
         institute:'',
@@ -25,6 +27,7 @@ const editPage=()=>{
       });
     useEffect(() => {
     const checkLoginStatus = async () => {
+        setLoading(true);
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/isloggedin`, {
           withCredentials: true,
@@ -46,12 +49,16 @@ const editPage=()=>{
             user:'',
           });
       }
+      finally{
+        setLoading(false);
+      }
     };
 
     checkLoginStatus();
   }, [location]);
 
     const getData = async () => {
+        setLoading(true);
         try {
         const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}/getdata`,{withCredentials:true});
         if(res.data){
@@ -63,6 +70,9 @@ const editPage=()=>{
         } catch (err) {
             console.error("Failed to fetch user data", err);
             setValidUser(false);
+        }
+        finally{
+            setLoading(true);
         }
     };
     useEffect(()=>{
@@ -86,7 +96,7 @@ const editPage=()=>{
             leetcode: formData.leetcode,
             },
         };
-
+        setLoading(true);
         try{
             await axios.put(`${import.meta.env.VITE_API_BASE_URL}/users/${isLoggedIn.user.username}`, modified  ,{withCredentials: true,});
             setShowAlert(true);
@@ -97,10 +107,16 @@ const editPage=()=>{
         catch (err){
             console.log("failed to update profile",err);
         }
+        finally{
+            setLoading(false);
+        }
     }
     return (
-        <>
-            {showAlert && (
+        <div>
+            {
+                loading?(<Spinner/>):
+                <div>
+                    {showAlert && (
                 <div className="success-message" >
                     Profile Updated Successfully!! REDIRECTING.........
                 </div>
@@ -139,7 +155,9 @@ const editPage=()=>{
                 </form>
             </div>
             }
-        </>
+                </div>
+            }
+        </div>
     )
 }
 export default editPage;
