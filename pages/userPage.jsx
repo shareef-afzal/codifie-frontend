@@ -4,14 +4,15 @@ import {useParams} from 'react-router-dom';
 import UserTopSection from "../src/components/userProfile/userTopSection";
 import UserStatsSection from "../src/components/userProfile/userStatsSection";
 import './userPage.css'
-
+import Spinner from "../src/components/spinner";
 const UserPage = () => {
   const {username}=useParams();
   const [user,setUser]=useState(null);
+  const [fetching,setFetching]=useState(false);
   const [loading,setLoading]=useState(false);
-
   useEffect(()=>{
     const fetchData=async ()=>{
+      setLoading(true);
       try{
         //load existing data from backend
         const userRes=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}`,{withCredentials:true});
@@ -23,16 +24,19 @@ const UserPage = () => {
         const lastFetched=new Date(userData.lastFetchedAt)||new Date(0);
         const hoursSinceLastFetch=(now-lastFetched)/(1000*60*60);
         if(hoursSinceLastFetch>=0.5){
-          setLoading(true);
+          setFetching(true);
           const fetchedRes=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/fetch/all/${username}`,{withCredentials:true});
           const updatedUserData=fetchedRes.data;
           
           setUser(updatedUserData);
-          setLoading(false);
+          setFetching(false);
         }
       }
       catch (err) {
         console.error("Failed to fetch user:", err);
+        setFetching(false);
+      }
+      finally{
         setLoading(false);
       }
     };
@@ -52,7 +56,10 @@ const UserPage = () => {
     return total;
   };
   return (
-      <div className="user-page">
+     <div>
+      {
+        loading?(<Spinner/>):
+         <div className="user-page">
         <UserTopSection user={{
         username: user.username,
         profilePic: user.profilePic,
@@ -79,6 +86,8 @@ const UserPage = () => {
         </div>
       )}
       </div>
+      }
+     </div>
   );
 };
 

@@ -4,11 +4,13 @@ import { useState,useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Spinner from "../spinner";
 const loginPage=()=>{
     const navigate=useNavigate();
     const[showAlert, setShowAlert]=useState(false);
     const {username}=useParams();
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const [formData,setFormData]=useState({
         email:'',
         password:''
@@ -19,6 +21,7 @@ const loginPage=()=>{
     }
     const handleSubmit=async(e)=>{
         e.preventDefault();
+        setLoading(true);
         try{
             const res=await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/login`, formData,{ withCredentials: true });
             setShowAlert(true);
@@ -34,10 +37,16 @@ const loginPage=()=>{
             },2000);
             
         }
+        finally{
+            setLoading(false);
+        }
     }
     return (
-        <>
-            {showAlert && (
+       <div>
+        {
+            loading?(<Spinner/>):
+            <div>
+                {showAlert && (
                 <div className="success-message" >
                     Login Successful
                 </div>
@@ -66,7 +75,9 @@ const loginPage=()=>{
                     </div>
                 </form>
             </div>
-        </>
+            </div>
+        }
+       </div>
     )
 }
 export default loginPage;

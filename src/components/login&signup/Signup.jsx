@@ -3,11 +3,11 @@ import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './loginSignup.css';
 import { useNavigate } from 'react-router-dom';
-
+import Spinner from '../spinner';
 const Signup = () => {
   const navigate = useNavigate();
   const debounceRef = useRef(null);
-
+  const [loading, setLoading] = useState(false);
   const [usernameAvailiable, setUsernameAvailiable] = useState(null);
   const [formData, setFormData] = useState({
     username: '',
@@ -52,6 +52,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (usernameAvailiable === true) {
+      setLoading(true);
       try {
         const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/users/signup`, formData, {
           withCredentials: true
@@ -62,11 +63,17 @@ const Signup = () => {
       } catch (err) {
         alert(err.message);
       }
+      finally{
+        setLoading(false);
+      }
     }
   };
 
   return (
-    <div className="signup-form-container">
+    <div>
+      {
+        loading?(<Spinner/>):
+            <div className="signup-form-container">
       <div className="header">
         <div className="text">Sign Up</div>
         <div className="underline"></div>
@@ -117,6 +124,8 @@ const Signup = () => {
           <button type="submit" className="submit">Sign Up</button>
         </div>
       </form>
+    </div>
+      }
     </div>
   );
 };
