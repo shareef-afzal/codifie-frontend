@@ -32,7 +32,7 @@ const CustomNavbar = () => {
   const handleCloseNavMenu = () => setAnchorElNav(null);
   const handleLogout = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/users/logout", {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/logout`, {
         withCredentials: true,
       });
 
@@ -55,7 +55,7 @@ const CustomNavbar = () => {
   useEffect(() => {
     const checkLoginStatus = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/users/isloggedin", {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/isloggedin`, {
           withCredentials: true,
         });
         if(res.data?.isLoggedIn) {
