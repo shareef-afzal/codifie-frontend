@@ -43,7 +43,6 @@ const UserPage = () => {
 
     fetchData();
   },[username]);
-  if (!user) return <p className="text-center mt-5">User not found</p>;
 
   // helper function to calculate total solved across all platforms
   const calculateTotalSolved = (platformStats) => {
