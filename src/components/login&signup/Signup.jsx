@@ -37,7 +37,7 @@ const Signup = () => {
           return;
         }
         try {
-          const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/check-username/${value}`);
+          const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/check-username/${value}`,{withCredentials:true});
           setUsernameAvailiable(res.data.availiable);
         } catch (err) {
           console.log(err);

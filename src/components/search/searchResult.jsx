@@ -39,7 +39,7 @@ const SearchResult = ({ matchedUsers }) => {
   const fetchFriends=async ()=>{
       try{
           if(isLoggedIn.status){
-            const res=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${isLoggedIn.user.username}/getfriends`);
+            const res=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${isLoggedIn.user.username}/getfriends`,{withCredentials:true});
             if(res.data){
                 setFriends(res.data.friends);
             }

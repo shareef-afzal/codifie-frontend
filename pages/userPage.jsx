@@ -14,7 +14,7 @@ const UserPage = () => {
     const fetchData=async ()=>{
       try{
         //load existing data from backend
-        const userRes=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}`);
+        const userRes=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}`,{withCredentials:true});
         const userData=userRes.data;
         setUser(userData);
         
@@ -24,7 +24,7 @@ const UserPage = () => {
         const hoursSinceLastFetch=(now-lastFetched)/(1000*60*60);
         if(hoursSinceLastFetch>=0.5){
           setLoading(true);
-          const fetchedRes=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/fetch/all/${username}`);
+          const fetchedRes=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/fetch/all/${username}`,{withCredentials:true});
           const updatedUserData=fetchedRes.data;
           
           setUser(updatedUserData);

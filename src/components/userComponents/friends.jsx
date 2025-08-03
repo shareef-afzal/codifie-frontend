@@ -9,7 +9,7 @@ const friends = () => {
     const {username}=useParams();
     const fetchFriends=async ()=>{
         try{
-            const res=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}/getfriends`);
+            const res=await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}/getfriends`,{withCredentials:true});
             if(res.data){
                 setFriends(res.data.friends);
                 setIntialFriends(res.data.friends);

@@ -53,7 +53,7 @@ const editPage=()=>{
 
     const getData = async () => {
         try {
-        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}/getdata`);
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/users/${username}/getdata`,{withCredentials:true});
         if(res.data){
             setFormData(res.data);
         }
