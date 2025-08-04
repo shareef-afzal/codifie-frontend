@@ -38,3 +38,19 @@
   cursor: pointer;
   color: #FFF;
 }
+
+@media (max-width: 400px){
+  .search-result-container{
+    width: 90% !important;
+    margin: 0 auto !important;
+    margin-top: 1.5rem !important;
+    padding: 0.8rem !important;
+  }
+  .user-card {
+    padding: 0.5rem 1rem !important;
+  }
+  .search-username{
+    font-size: 1rem !important;
+    margin-left: 10px !important;
+  }
+}
