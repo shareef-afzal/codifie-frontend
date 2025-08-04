@@ -16,7 +16,7 @@ const PlatformStatsCard = ({ platform, stats }) => {
   } = stats;
 
   return (
-    <div className=" p-4 m-3 mt-0">
+    <div className=" p-4 m-3 mt-0 platformStats-contianer">
       <h4 className="mb-3" style={{fontWeight:"bold", fontSize:"2rem"}}>{platform} Stats</h4>
 
       {/* Row 1: Ratings Graph | Ratings Box | Problems Solved */}
@@ -24,7 +24,7 @@ const PlatformStatsCard = ({ platform, stats }) => {
         {/* Ratings Graph */}
         {/* Ratings Graph */}
         <div className="col-lg-6">
-            <div className="uppercard rounded p-3 h-100 ">
+            <div className="uppercard rounded p-3 h-100 ratings-graph">
                 <RatingsChart data={stats.ratingHistory} />
             </div>
         </div>
@@ -63,7 +63,7 @@ const PlatformStatsCard = ({ platform, stats }) => {
 
             {/* Heatmap */}
              <div className="col-lg-9">
-              <div className="uppercard rounded  p-3">
+              <div className="uppercard rounded  p-3 heatmap">
                 <HeatmapSection
                   data={stats.heatmap}
                 />

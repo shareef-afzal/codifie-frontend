@@ -31,6 +31,7 @@ const RatingsChart = ({ data }) => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false, // ✅ hides "Rating" label on top

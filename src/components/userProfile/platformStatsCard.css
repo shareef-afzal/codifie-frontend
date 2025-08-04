@@ -14,3 +14,16 @@
     font-size: 2rem; /* larger font for data */
     
 }
+@media (max-width:520px){
+    .platformStats-contianer{
+        margin: 0px !important;
+        padding: 10px !important;
+    }
+    .ratings-graph{
+        padding: 10px !important;
+        height: 300px !important;
+    }
+    .heatmap{
+        padding: 5px !important;
+    }
+}
