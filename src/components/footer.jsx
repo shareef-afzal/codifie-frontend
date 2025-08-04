@@ -1,5 +1,5 @@
 import React from 'react';
-import './footer.css';
+import './Footer.css';
 
 const Footer = () => {
   return (
@@ -7,10 +7,8 @@ const Footer = () => {
       <div className="footer-top">
         <div className="footer-title"> <a href="/">CODIFIE</a></div>
         <div className="footer-socials">
-          <a href="#" className='footer-links'>GitHub</a>
-          <a href="#" className='footer-links'>LinkedIn</a>
-          <a href="#" className='footer-links'>Twitter</a>
-          <a href="#" className='footer-links'>Discord</a>
+          <a target='_blank' href="https://www.linkedin.com/in/afzal-shareef-aa516a2a9/" >LinkedIn</a>
+          <a target='_blank' href="mailto:afzalshareef1005@gmail.com" >GMail</a>
         </div>
       </div>
       <div className="footer-bottom">
