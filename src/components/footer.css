@@ -53,3 +53,8 @@
 .footer-links{
   padding: 5px 10px;
 }
+@media(max-width:450px){
+  .footer-top{
+    flex-direction: column;
+  }
+}
