@@ -60,7 +60,7 @@ const UserTopSection = ({ user }) => {
               target="_blank"
               rel="noreferrer"
               // className="btn btn-outline-primary btn-sm"
-            >
+            className='profile-links'>
               {platform}
             </a>
           ) : null
