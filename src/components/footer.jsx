@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="footer-top">
         <div className="footer-title"> <a href="/">CODIFIE</a></div>
         <div className="footer-socials">
-          <a href="#" >GitHub</a>
-          <a href="#" >LinkedIn</a>
-          <a href="#" >Twitter</a>
-          <a href="#" >Discord</a>
+          <a href="#" className='footer-links'>GitHub</a>
+          <a href="#" className='footer-links'>LinkedIn</a>
+          <a href="#" className='footer-links'>Twitter</a>
+          <a href="#" className='footer-links'>Discord</a>
         </div>
       </div>
       <div className="footer-bottom">
