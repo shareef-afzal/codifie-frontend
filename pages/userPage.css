@@ -13,3 +13,8 @@
     width: 80%;
     margin: 0 auto;
 }
+@media (max-width:520px){
+    .user-page{
+        width: 90%;
+    }
+}
