@@ -39,7 +39,7 @@
   color: #FFF;
 }
 
-@media (max-width: 400px){
+@media (max-width: 520px){
   .search-result-container{
     width: 90% !important;
     margin: 0 auto !important;
