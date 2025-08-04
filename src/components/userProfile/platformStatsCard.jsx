@@ -17,7 +17,7 @@ const PlatformStatsCard = ({ platform, stats }) => {
 
   return (
     <div className=" p-4 m-3 mt-0 platformStats-contianer">
-      <h4 className="mb-3" style={{fontWeight:"bold", fontSize:"2rem"}}>{platform} Stats</h4>
+      <h4 className="mb-3 platform-title" style={{fontWeight:"bold", fontSize:"2rem"}}>{platform} Stats</h4>
 
       {/* Row 1: Ratings Graph | Ratings Box | Problems Solved */}
       <div className="row g-3 mb-3">

@@ -25,4 +25,8 @@
     .heatmap{
         padding: 5px !important;
     }
+    .platform-title{
+        font-size: 1.3rem !important;
+        color: grey;
+    }
 }
