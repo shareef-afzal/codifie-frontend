@@ -22,11 +22,11 @@ const UserTopSection = ({ user }) => {
               <img
                 src={profilePic}
                 alt="Profile"
-                className="rounded-circle me-3"
+                className="rounded-circle me-3 profile-pic"
                 style={{ width: '90px', height: '90px', objectFit: 'cover'}}
               />
               <div>
-                <h5 className="mb-0" style={{fontSize:"2rem", fontWeight:"bold"}}>{username}</h5>
+                <h5 className="mb-0 userpage-username" style={{fontSize:"2rem", fontWeight:"bold"}}>{username}</h5>
                 <small style={{fontSize:"0.875rem", color:"grey"}}>{institute}</small>
                 <div className="mt-1" style={{fontSize:"0.875rem", color:"grey"}}>
                   Friend of <strong>{friendOf}</strong> users

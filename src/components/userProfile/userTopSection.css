@@ -10,3 +10,12 @@ a:hover{
     color: #36E0FF;
     background-color: #131825;
 }
+@media(max-width:520px){
+    .profile-pic{
+        height: 60px !important;
+        width: 60px !important;
+    }
+    .userpage-username{
+        font-size: 1.5rem !important;
+    }
+}
